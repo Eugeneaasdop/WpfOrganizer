@@ -1,0 +1,54 @@
+﻿<Page x:Class="WpfOrganizer.Pages.PageUsersAdd"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfOrganizer.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUsersAdd">
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Gray">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20">
+                <TextBlock Text="Добавление нового пользователя" Width="290" Height="20" Margin="10" TextAlignment="Center" FontWeight="Bold" FontSize="17" Name="Titletxt"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal"  Width="400">
+                <TextBlock Width="160" Text="Фамилия" FontSize="16" FontWeight="DemiBold" Margin="7" />
+                <TextBox Name="Txtname"  Text="{Binding first_name}" Width="180" Margin="7" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Width="400">
+                <TextBlock Width="160" Text="Имя" FontSize="16" FontWeight="DemiBold" Margin="7" />
+                <TextBox Name="Txtlast"  Text="{Binding last_name}" Width="180" Margin="7" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Width="400">
+                <TextBlock Width="160" Text="Почта" FontSize="16" FontWeight="DemiBold" Margin="7" />
+                <TextBox Name="Txtemail"  Text="{Binding email}" Width="180" Margin="7" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Width="400">
+                <TextBlock Width="160" Text="Пароль" FontSize="16" FontWeight="DemiBold" Margin="7" />
+                <TextBox Name="Txtpass"  Text="{Binding password}" Width="180" Margin="7" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Width="400">
+                <TextBlock Width="160" Text="Категория" FontSize="16" FontWeight="DemiBold" Margin="7" />
+                <ComboBox Name="CMBcat" Width="180" Margin="7" FontSize="14"
+                          SelectedValue="{Binding id_category}"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" >
+                <Button Style="{StaticResource StyleBtn}" Content="Добавить" Name="btnAdd" Click="btnAdd_Click" />
+            </StackPanel>
+            <StackPanel>
+                <Button Style="{StaticResource StyleBtn}" Content="Отмена" Name="btnExit" Click="btnExit_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

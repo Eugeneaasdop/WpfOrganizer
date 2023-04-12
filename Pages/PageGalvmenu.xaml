@@ -1,0 +1,29 @@
+﻿<Page x:Class="WpfOrganizer.Pages.PageGalvmenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfOrganizer.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageGalvmenu">
+
+    <Grid Background ="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Text="Главное меню" Foreground="White" FontSize="20"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Grid.Row="1">
+            <Button Height="50" Width="300" Content="Пользователи"
+                    FontSize="15" Margin="10" Name="Use" Click="Use_Click" Style="{StaticResource StyleBtn}"/>
+            <Button Height="50" Width="300" Content="Задачи"
+                    FontSize="15" Margin="10" Name="Tas" Click="Tas_Click" Style="{StaticResource StyleBtn}"/>
+            <Button Height="50" Width="300" Content="Планируемые задачи"
+                    FontSize="15" Margin="10" Name="Eve" Click="Eve_Click" Style="{StaticResource StyleBtn}"/>
+        </StackPanel>
+    </Grid>
+</Page>

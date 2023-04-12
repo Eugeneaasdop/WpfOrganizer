@@ -1,0 +1,68 @@
+﻿<Page x:Class="WpfOrganizer.Pages.PageUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfOrganizer.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUsers">
+
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="Список пользователей" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <TextBlock Text="Поиск по фамилии:" HorizontalAlignment="Center" Margin="10"/>
+                <ToolBar Grid.Column="1" Height="20">
+                    <TextBox Width="130" Height="25" Name="Findsurname" TextChanged="Findsurname_TextChanged"></TextBox>
+                </ToolBar>
+                <TextBlock Text="Количество пользователей:" FontSize="15" VerticalAlignment="Center" Foreground="White" Margin="8"/>
+                <TextBox Name="Txtname"  Width="100" Margin="7" Height="23" FontSize="14"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
+                    Orientation="Vertical" Background="Gray">
+            <TextBlock Text="Фильтр по категории: " FontSize="12" HorizontalAlignment="Center" Margin="7"/>
+            <ComboBox Name="CMBFilterForm" Height="25" Width="100" 
+                          SelectionChanged="CMBFilterForm_SelectionChanged"/>
+            <Button Content="Добавить" Height="30" Width="80" Margin="10" 
+                        Name="Btnadd" Click="Btnadd_Click" FontSize="16" Style="{StaticResource StyleBtn}"/>
+        </StackPanel>
+        <DataGrid Name="DtgSQL" AutoGenerateColumns="False" Margin="10" IsReadOnly="True" Grid.Row="1" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Header="Фамилия" Width="*"
+                        Binding="{Binding first_name}"/>
+                <DataGridTextColumn
+                        Header="Имя" Width="*"
+                        Binding="{Binding last_name}"/>
+                <DataGridTextColumn
+                        Header="почта" Width="*"
+                        Binding="{Binding email}"/>
+                <DataGridTextColumn
+                        Header="пароль" Width="*"
+                        Binding="{Binding password}"/>
+                <DataGridTextColumn
+                        Header="Категория" Width="*"
+                        Binding="{Binding Categories.NameCate}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать" Name="BTNedit" Click="BTNedit_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Удалить" Name="Delette" Click="Delette_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button Grid.Row="2" Grid.Column="1" Width="100" Height="50" Content="Главное меню" Name="PGlav" Click="PGlav_Click" Style="{StaticResource StyleBtn}" FontSize="13"/>
+    </Grid>
+</Page>
